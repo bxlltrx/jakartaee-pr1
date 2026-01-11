@@ -1,0 +1,9 @@
+com\example\app\entity\PurchaseOrder.class
+com\example\app\ejb\OrderService.class
+com\example\app\rest\UserResource.class
+com\example\app\rest\ApiApplication.class
+com\example\app\rest\OrderResource$CreateOrderRequest.class
+com\example\app\ejb\UserService.class
+com\example\app\rest\OrderResource.class
+com\example\app\rest\UserResource$CreateUserRequest.class
+com\example\app\entity\User.class
