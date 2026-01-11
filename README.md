@@ -14,7 +14,6 @@
 - PostgreSQL  
 - JPA (EclipseLink)  
 - EJB (Stateless Session Beans)  
-- JAX-RS (REST)  
 - Maven  
 
 ---
