@@ -49,49 +49,6 @@
 
 ---
 
-##  База данных
-
-Используется **PostgreSQL**.
-
-### Создание таблиц
-
-```sql
-CREATE TABLE app_user (
-  id BIGSERIAL PRIMARY KEY,
-  full_name VARCHAR(100) NOT NULL,
-  email VARCHAR(120) NOT NULL UNIQUE
-);
-
-CREATE TABLE purchase_order (
-  id BIGSERIAL PRIMARY KEY,
-  created_at TIMESTAMP NOT NULL,
-  total_amount NUMERIC(12,2) NOT NULL,
-  user_id BIGINT NOT NULL REFERENCES app_user(id) ON DELETE CASCADE
-)```
-
- Настройка GlassFish
-Создание JDBC Connection Pool
-bash
-Копировать код
-asadmin create-jdbc-connection-pool --datasourceclassname=org.postgresql.ds.PGSimpleDataSource --restype=javax.sql.DataSource --property user=shopuser:password=shop123:databaseName=shopdb:serverName=localhost:portNumber=5432 AppPool
-Создание JDBC Resource
-bash
-Копировать код
-asadmin create-jdbc-resource --connectionpoolid AppPool jdbc/AppDS
-📦 Сборка и развёртывание
-Сборка проекта
-bash
-Копировать код
-mvn clean package
-Деплой в GlassFish
-bash
-Копировать код
-asadmin deploy target/jakartaee-pr1-1.0.0.war
-🌐 REST API
-Базовый путь:
-
-bash
-Копировать код
 /api
 Пользователи
 GET /api/users — получить список пользователей
@@ -109,17 +66,6 @@ POST /api/orders — создать заказ
 
 DELETE /api/orders/{id} — удалить заказ
 
-✅ Результат работы
-В результате выполнения практической работы:
 
-разработано Jakarta EE-приложение с трёхслойной архитектурой;
-
-реализовано взаимодействие с PostgreSQL через JPA;
-
-бизнес-логика оформлена в виде Session EJB;
-
-реализован слой представления на основе REST API;
-
-приложение успешно развёртывается и работает на сервере GlassFish.
 
 
